@@ -65,7 +65,7 @@ export default class Newsfeeds extends Component {
     }
   }
   render() {
-    if(this.state.feeddata === ''){
+    if(this.state.feeddata.length === 0){
       return (
         <Loader active size='massive'/>
       );
