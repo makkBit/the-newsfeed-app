@@ -1,4 +1,4 @@
-This project is live on [https://the-newsfeed-app-ghb0q4gqk.now.sh/](https://the-newsfeed-app-ghb0q4gqk.now.sh/).
+This project is live on [https://the-newsfeed-app-ar3zsxca0.now.sh/](https://the-newsfeed-app-ar3zsxca0.now.sh/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
