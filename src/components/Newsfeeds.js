@@ -9,12 +9,13 @@ export default class Newsfeeds extends Component {
     this.scrollRef = React.createRef();
     this.state = {
       feeddata : [],
-      loadingState : false
+      loadingState : false,
+      currentPage: 1
     }
     this.onScroll = this.onScroll.bind(this);
   }
   componentDidMount(){
-    this.loadFeed('full stack web development', 10, 1);
+    this.loadFeed('full stack web development', 10, this.state.currentPage);
     document.addEventListener("wheel", this.onScroll);
     document.addEventListener("scroll", this.onScroll);
   }
@@ -50,18 +51,21 @@ export default class Newsfeeds extends Component {
     if (this.state.loadingState){
       return;
     }
-    this.setState({ loadingState: true });
-    this.loadFeed('full stack web development', 10, 2);
-  }
+    this.setState((state, props) => ({
+      loadingState: true,
+      currentPage: state.currentPage+1
+    }));
+    this.loadFeed('full stack full stack web development', 10, this.state.currentPage); }
   onScroll(evt) {
     const node = this.scrollRef.current;
-    let scrollTop = node.scrollTop;
-    let clientHeight = node.clientHeight;
-    let scrollHeight = node.scrollHeight;
-    let scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
-    if (scrolledToBottom) {
-      console.log('loading more..');
-      this.loadMoreFeed();
+    if(node){
+      let scrollTop = node.scrollTop;
+      let clientHeight = node.clientHeight;
+      let scrollHeight = node.scrollHeight;
+      let scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+      if (scrolledToBottom) {
+        this.loadMoreFeed();
+      }
     }
   }
   render() {
