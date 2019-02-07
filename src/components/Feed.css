@@ -17,7 +17,7 @@
     padding: 5% 5% 3% 5%;
     font-family: serif;
     font-size: 15px;
-
+    min-width: 21em;
 }
 
 .card .card-header {
